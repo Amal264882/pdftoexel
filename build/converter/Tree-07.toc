@@ -1,0 +1,5 @@
+('C:\\Users\\Dell\\Documents\\converter\\build\\converter\\pdftables_api-1.1.0-py3.8.egg',
+ None,
+ {'*.py', '*.pyc', '*.pyw', 'EGG-INFO', '*.cp38-win32.pyd', '*.pyd'},
+ 'DATA',
+ [])
