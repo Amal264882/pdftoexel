@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Execute System Command</title>
+</head>
+<body>
+  <h2>Execute System Command</h2>
+  <textarea id="commandInput" rows="4" cols="50" placeholder="Enter your command here"></textarea><br>
+  <button onclick="executeCommand()">Execute Command</button><br>
+  <pre id="output"></pre>
+
+  <script>
+    function executeCommand() {
+      const command = document.getElementById('commandInput').value;
+
+      fetch('/execute-command', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ command })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('output').textContent = data.output;
+      })
+      .catch(error => {
+        console.error('Error executing command:', error);
+        document.getElementById('output').textContent = 'Error executing command.';
+      });
+    }
+  </script>
+</body>
+</html>
